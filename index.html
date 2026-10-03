@@ -295,32 +295,6 @@ pre.code{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:14px;font-s
 <p style="text-align:center;color:var(--muted2);font-size:12px;margin-top:22px">🔒 Hinweis: Passwortschutz ist reiner Frontend-Schutz (Demo) · Pläne & Zeiten werden lokal im Browser gespeichert · <b>Jede Person hat eigene Zeiten</b></p>
 </section>
 
-<!-- HELP -->
-<div id="helpModal" class="modal-overlay hidden"><div class="modal help-content"><button class="modal-close" onclick="closeHelp()">✕</button><h3>📖 Anleitung: 10 Stunden + eigene Zeiten</h3><p class="sub" style="text-align:left">Alles ist bewusst nur mit HTML, CSS & JS gebaut. So passt du alles an:</p>
-<div class="help-step"><b>1️⃣ Personen & Passwörter:</b> Im Bereich <code>USERS</code> kannst du <code>vorname</code>, <code>klasse</code> und <code>passwort</code> ändern. Beispiel: <code>passwort: "meinGeheim123"</code></div>
-<div class="help-step"><b>2️⃣ Eigene Zeiten pro Person (10 Stunden):</b> Jede Person hat ein eigenes Feld <code>zeiten</code> mit 10 Einträgen. Die Personen sind bewusst unterschiedlich eingestellt. Beispiel:<br><code>{ stunde:1, von:"07:45", bis:"08:30" }</code> – einfach Uhrzeit ändern. Im Browser geht das auch über den Button <code>⏰ Zeiten</code>.</div>
-<pre class="code">// Beispiel Lena (früh):
-zeiten: [
- { stunde:1, von:"07:45", bis:"08:30" },
- { stunde:9, von:"15:30", bis:"16:15" },
- { stunde:10, von:"16:20", bis:"17:05" },
-]
-// Beispiel Finn (spät):
-zeiten: [
- { stunde:1, von:"08:00", bis:"08:45" },
- { stunde:9, von:"16:00", bis:"16:45" },
- { stunde:10, von:"16:50", bis:"17:35" },
-]</pre>
-<div class="help-step"><b>3️⃣ Stundenplan mit 10 Zeilen:</b> Unter <code>plaene: { A: [...] }</code> ist jede Zeile eine Stunde (jetzt <b>10 Zeilen</b>), jede Zeile hat 5 Spalten = [Mo, Di, Mi, Do, Fr]. <code>null</code> = Frei.</div>
-<pre class="code">// 9. Stunde: Mo, Di, Mi, Do, Fr
-[ null,
-  { fach:"Förder", lehrer:"Bauer", raum:"204" },
-  null, null,
-  { fach:"Informatik AG", lehrer:"Lehmann", raum:"I2" } ],</pre>
-<div class="help-step"><b>4️⃣ Wochen-Rhythmus:</b> KW 1 = Woche <code>A</code>, KW 2 = <code>B</code> … danach wieder <code>A</code>. Falls eure Schule anders startet, ändere <code>ROTATION_OFFSET</code> (0–3).</div>
-<div class="help-step"><b>5️⃣ Farben:</b> In <code>SUBJECT_COLORS</code> stehen die Fach-Farben. Einfach Hex-Code tauschen.</div>
-<div class="modal-btns"><button class="btn btn-primary" onclick="closeHelp()">Verstanden ✅</button></div></div></div>
-
 <!-- EDIT -->
 <div id="editModal" class="modal-overlay hidden"><div class="modal"><button class="modal-close" onclick="closeEdit()">✕</button><h3>✏️ Stunde bearbeiten</h3><p class="sub" id="editSub">–</p><div class="edit-grid"><div class="full"><label>Fach</label><input id="eFach" list="fachList" placeholder="z. B. Mathe"><datalist id="fachList"></datalist></div><div><label>Lehrer / Kürzel</label><input id="eLehrer" placeholder="z. B. Bauer"></div><div><label>Raum</label><input id="eRaum" placeholder="z. B. 204"></div></div><div class="modal-btns"><button class="btn btn-cancel" onclick="deleteLesson()">🗑️ Frei</button><button class="btn btn-primary" onclick="saveLesson()">Speichern ✅</button></div></div></div>
 
